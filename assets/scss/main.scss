@@ -1,7 +1,6 @@
 @import "_generals.scss";
 @import "_mixin.scss";
 @import "_variables.scss";
-@import "_mq.scss";
 // sass --watch assets/scss/main.scss assets/css/style.css
 .header {
     @include header
@@ -24,23 +23,20 @@ h2 {
 
 .main {
     @include main;
-}
-
-.section_text>h3 {
-    text-align: center;
-}
-
-.section_text,
-.section_images {
-    margin: 1rem;
+    .section_text>h3 {
+        text-align: center;
+    }
+    .section_text,
+    .section_images {
+        margin: 1rem;
+    }
 }
 
 .section_images {
     @include sec-img;
-}
-
-img {
-    @include img
+    img {
+        @include img
+    }
 }
 
 .aside {
@@ -60,5 +56,20 @@ img {
                 @include a;
             }
         }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .section_images {
+        @include mediaQ_sec-img
+    }
+    .section_text {
+        width: 70%;
+    }
+    .aside {
+        @include mediaQ_aside
+    }
+    aside {
+        @include mediaQ_aside-inner
     }
 }
